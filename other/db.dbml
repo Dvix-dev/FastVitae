@@ -1,0 +1,70 @@
+// Definición de la base de datos para FastVitae
+
+Table Usuario {
+  id int [primary key]
+  nombre varchar(100)
+  email varchar(150) [unique, not null]
+  contraseña varchar(255) [not null]
+  rol varchar [default: 'usuario']
+  fecha_registro timestamp [default: 'CURRENT_TIMESTAMP']
+}
+
+Table Perfiles {
+  id int [primary key]
+  usuario_id int [not null]
+  nombre_perfil varchar(100) [not null]
+  educación text
+  experiencia text
+  habilidades text
+  idiomas text
+  proyectos text
+}
+
+Table Plantilla {
+  id int [primary key]
+  nombre varchar(100) [not null]
+  descripcion text
+  ruta_previsualización varchar(255) [not null]
+}
+
+Table Curriculum {
+  id int [primary key]
+  usuario_id int [not null]
+  plantilla_id int [not null]
+  perfil_id int [default: null]
+  puesto varchar(100)
+  nombre varchar(100)
+  apellidos varchar(100)
+  email varchar(100)
+  telefono integer(9)
+  licencias_conducir varchar(100)
+  descripcion varchar(100)
+  fecha_creacion timestamp [default: 'CURRENT_TIMESTAMP']
+}
+
+Table Trayectoria {
+  id int [primary key]
+  curriculum_id int [not null]
+  tipo_sección varchar [not null]
+  lugar varchar [not null]
+  ocupacion varchar [not null]
+  fecha_inicio timestamp [not null]
+  fecha_fin timestamp
+  descripcion text [not null]
+}
+
+Table Complementos {
+  id int [primary key]
+  curriculum_id int [not null]
+  tipo_sección varchar [not null]
+  nombre text [not null]
+  nivel int
+}
+
+// Relaciones
+Ref: Perfiles.usuario_id > Usuario.id // Un usuario puede tener múltiples perfiles
+Ref: Curriculum.usuario_id > Usuario.id // Un usuario puede tener múltiples currículums
+Ref: Curriculum.plantilla_id > Plantilla.id // Un currículum pertenece a una plantilla
+Ref: Perfiles.id > Curriculum.id // Un currículum puede basarse en un perfil
+Ref: Trayectoria.curriculum_id > Curriculum.id // Un currículum tiene múltiples secciones
+Ref: Complementos.curriculum_id > Curriculum.id // Un currículum tiene múltiples secciones
