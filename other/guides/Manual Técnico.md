@@ -6,11 +6,11 @@ David Escutia de Haro
     - [HTML](#html)
     - [CSS](#css)
     - [JavaScript](#javascript)
-    - [Apache](#apache)
-    - [Docker](#docker)
     - [PHP](#php)
     - [Laravel](#laravel)
     - [Composer](#composer)
+    - [Apache](#apache)
+    - [Docker](#docker)
 - [Instalacion del web server](#instalacion-del-web-server)
 - [Configuracion inicial de la aplicación](#configuracion-inicial-de-la-aplicación)
 - [Casos de uso](#casos-de-uso)
@@ -25,30 +25,25 @@ David Escutia de Haro
 ### JavaScript
 
 
+### PHP
+
+
+### Laravel
+
+
+### Composer
+
+
 ### Apache
 
 
 ### Docker
 
 
-### PHP
-
-
-
-### Laravel
-
-
-
-### Composer
-
-
-
 ## Instalacion del web server
 
 
-
 ## Configuracion inicial de la aplicación
-
 
 
 ## Casos de uso
